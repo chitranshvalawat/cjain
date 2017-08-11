@@ -1,0 +1,2108 @@
+LynxOS-178 (ppc) created Tue Aug  1 06:38:46 CDT 2017
+cinit: VCT in use is /usr/local/etc/VCT
+Starting SRIO Testing
+Current mode is 0.
+Current Virtual Board is 0.
+log file = /tmp/srio_test_app_log_mode0_VB0
+Running driver based tests
+
+*******************************************************************************
+Test Case - srio_install - successful installation
+*******************************************************************************
+
+Result 1:
+
+The  passed in parameter to sysbrk is equal to size of statics
+structure.
+
+Expected return value = 0x00000008  Actual return value = 0x00000008
+
+       Pass __X__    Fail _____
+
+The return value of sysbrk is equal to the return value of srio_install.
+
+Expected return value != 0xFFFFFFFF  Actual return value = 0x4098DC08
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - clear statics structure
+*******************************************************************************
+
+Result 1:
+
+flag is set to 1.
+
+Expected return value = 0x00000001  Actual return value = 0x00000001
+
+       Pass __X__    Fail _____
+
+flag is set to the size of static structure.
+
+Expected return value = 0x00000008  Actual return value = 0x00000008
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - memory allocation failure
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+ENOMEM(0xC).
+
+Expected return value = 0x0000000C  Actual return value = 0x0000000C
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - retrieve T2080 SRIO base address
+*******************************************************************************
+
+Result 1:
+
+The flag value is set to 1 indicating that the SRIO         Device
+Driver install entry point calls vbiMemRegionFind to retrieve the T2080 SRIO    
+    base address.
+
+Expected return value = 0x00000001  Actual return value = 0x00000001
+
+       Pass __X__    Fail _____
+
+The passed in region name to vbiMemRegion function is equal to the info file
+t2080_srio_base_addr_name element.
+
+Expected return value = srio_srio
+Actual return value = srio_srio
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - fail to retrieve T2080 SRIO Base Address
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+ENODEV(0x13).
+
+Expected return value = 0x00000013  Actual return value = 0x00000013
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - retrieve DMA base address
+*******************************************************************************
+
+Result 1:
+
+The flag value is set to 1 indicating that the SRIO         Device
+Driver install entry point calls vbiMemRegionFind function         to retrieve
+the DMA base address.
+
+Expected return value = 0x00000001  Actual return value = 0x00000001
+
+       Pass __X__    Fail _____
+
+The passed in region name to vbiMemRegion function is equal to the info file
+t2080_dma_base_addr_name element.
+
+Expected return value = fsl_dma1_dma1
+Actual return value = fsl_dma1_dma1
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - fail to retrieve DMA base address
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+ENODEV(0x13).
+
+Expected return value = 0x00000013  Actual return value = 0x00000013
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - retrieve DMA transfer buffer address
+*******************************************************************************
+
+Result 1:
+
+The flag value is set to 1 indicating that the SRIO         Device
+Driver install entry point calls vbiMemRegionFind to retrieve the DMA        
+transfer buffer address.
+
+Expected return value = 0x00000001  Actual return value = 0x00000001
+
+       Pass __X__    Fail _____
+
+The passed in region name to vbiMemRegion function is equal to the info file
+t2080_dma_transfer_addr_name element.
+
+Expected return value = fsl_dma1pamu_fsl_dma1pamu
+Actual return value = fsl_dma1pamu_fsl_dma1pamu
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - fail to retrieve DMA transfer buffer address
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+ENODEV(0x13).
+
+Expected return value = 0x00000013  Actual return value = 0x00000013
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - retrieve initialized LAW A physical base addr and
+size
+*******************************************************************************
+
+Result 1:
+
+The flag value is set to 1 indicating that the SRIO Device          
+Driver install entry point calls rciBspIoctl to retrieve the initialized LAW A  
+        physical base address and size from the LOS BSP. 
+
+Expected return value = 0x00000001  Actual return value = 0x00000001
+
+       Pass __X__    Fail _____
+
+The passed in region name to rciBspIoctl function is equal to the info file
+habu_law_a_name element.
+
+Expected return value = srio2_habulawA
+Actual return value = srio2_habulawA
+
+       Pass __X__    Fail _____
+
+The retrieved lower word address is equal to lower word of LAW A physical base
+address.
+
+Expected return value = 0x00000000  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+The retrieved higher word address is equal to higher word of LAW A physical base
+address.
+
+Expected return value = 0x00000001  Actual return value = 0x00000001
+
+       Pass __X__    Fail _____
+
+The retrieved size is equal to LAW A physical base address.
+
+Expected return value = 0x08000000  Actual return value = 0x08000000
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+srio_install - fail to retrieve LAW A physical base addr
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+ENODEV(0x13).
+
+Expected return value = 0x00000013  Actual return value = 0x00000013
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - size of LAW A not equal to 128MB
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x0000000E
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x0000000E
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x0000000E
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+Result 1:
+
+The SRIO Device Driver install entry point does not set errno to
+EFAULT(0xE).
+
+Expected return value != 0x0000000E  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point does not return SYSERR(0xFFFFFFFF).
+
+Expected return value != 0xFFFFFFFF  Actual return value = 0x40992250
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - retrieve initialized LAW B physical base address and
+size
+*******************************************************************************
+
+Result 1:
+
+The flag value is set to 1 indicating that the SRIO         Device
+Driver install entry point calls rciBspIoctl to retrieve the initialized        
+LAW B physical base address and size from the LOS BSP. 
+
+Expected return value = 0x00000001  Actual return value = 0x00000001
+
+       Pass __X__    Fail _____
+
+The passed in region name to rciBspIoctl function is equal to the info file
+habu_law_b_name element.
+
+Expected return value = srio2_habulawB
+Actual return value = srio2_habulawB
+
+       Pass __X__    Fail _____
+
+The retrieved lower word address is equal to lower word of LAW B physical base
+address.
+
+Expected return value = 0x08000000  Actual return value = 0x08000000
+
+       Pass __X__    Fail _____
+
+The retrieved higher word address is equal to higher word of LAW B physical base
+address.
+
+Expected return value = 0x00000001  Actual return value = 0x00000001
+
+       Pass __X__    Fail _____
+
+The retrieved size is equal to LAW B physical base address.
+
+Expected return value = 0x02000000  Actual return value = 0x02000000
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - fail to retrieve LAW B physical base address
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+ENODEV(0x13).
+
+Expected return value = 0x00000013  Actual return value = 0x00000013
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - size of LAW B not equal to 32MB
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x0000000E
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x0000000E
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+Result 3:
+
+The SRIO Device Driver install entry point sets errno to
+EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x0000000E
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+Result 1:
+
+The SRIO Device Driver install entry point does not set errno to
+EFAULT(0xE).
+
+Expected return value != 0x0000000E  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point does not return SYSERR(0xFFFFFFFF).
+
+Expected return value != 0xFFFFFFFF  Actual return value = 0x40992280
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - srio_check_link fail
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+ENOLINK(0x64).
+
+Expected return value = 0x00000064  Actual return value = 0x00000064
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - retrieve Habu LAW A base addr
+*******************************************************************************
+
+Result 1:
+
+The flag value is set to 1 indicating that the SRIO Device Driver   
+    install entry point calls vbiMemRegionFind to retrieve the virtual law A
+base address.
+
+Expected return value = 0x00000001  Actual return value = 0x00000001
+
+       Pass __X__    Fail _____
+
+The passed in region name to vbiMemRegion function is equal to the info file
+habu_law_a_name element.
+
+Expected return value = srio2_habulawA
+Actual return value = srio2_habulawA
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - fail to retrieve Habu LAW A base addr
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+ENODEV(0x13).
+
+Expected return value = 0x00000013  Actual return value = 0x00000013
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - retrieve Habu LAW B base address
+*******************************************************************************
+
+The flag value is set to 1 indicating that the SRIO Device Driver install entry
+point calls vbiMemRegionFind to retrieve the virtual law B base address.
+
+Expected return value = 0x00000001  Actual return value = 0x00000001
+
+       Pass __X__    Fail _____
+
+The passed in region name to vbiMemRegion function is equal to the info file
+habu_law_b_name element.
+
+Expected return value = srio2_habulawB
+Actual return value = srio2_habulawB
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - fail to retrieve Habu LAW B base address
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+ENODEV(0x13).
+
+Expected return value = 0x00000013  Actual return value = 0x00000013
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - DmaSetup returns SYSERR
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+ENODEV(0x13).
+
+Expected return value = 0x00000013  Actual return value = 0x00000013
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_open - EBUSY
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver open entry point sets errno to EBUSY(0x10).
+
+Expected return value = 0x00000010  Actual return value = 0x00000010
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver open entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_open - in_use
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver open entry point sets the 'in_use' member of
+the statics structure to 1.
+
+Expected return value = 0x00000001  Actual return value = 0x00000001
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_open - return OK
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver open entry point returns OK.
+
+Expected return value = 0x00000000  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_close - in_use
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver close entry point sets the 'in_use' member   
+   of the statics structure to 0 in order to release control of the driver.
+
+Expected return value = 0x00000000  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_close - return OK
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver close entry point returns OK.
+
+Expected return value = 0x00000000  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_read - SYSERR
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver read entry point sets errno to ENOSYS(0x63).
+
+Expected return value = 0x00000063  Actual return value = 0x00000063
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver read entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_write - SYSERR
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver write entry point sets errno to ENOSYS(0x63).
+
+Expected return value = 0x00000063  Actual return value = 0x00000063
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver write entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_select - sets errno to ENOSYS
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver select entry point sets errno to
+ENOSYS(0x63).
+
+Expected return value = 0x00000063  Actual return value = 0x00000063
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver select entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - command not recognized
+*******************************************************************************
+
+Result 1:
+
+srio_ioctl returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+errno is set to EINVAL(0x16).
+
+Expected return value = 0x00000016  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - FIOPRIO
+*******************************************************************************
+
+Result 1:
+
+srio_ioctl returns OK.
+
+Expected return value = 0x00000000  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - FIOASYNC
+*******************************************************************************
+
+Result 1:
+
+srio_ioctl returns OK.
+
+Expected return value = 0x00000000  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - PBIT-NULL arg
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_PBIT command
+sets errno to EINVAL(0x16).
+
+Expected return value = 0x00000016  Actual return value = 0x00000016
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver ioctl entry point for the SRIO_PBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - PBIT - wbounds - EFAULT
+*******************************************************************************
+
+Result 1:
+
+SRIO Device Driver ioctl entry point for the SRIO_PBIT command sets
+errno to EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x0000000E
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver ioctl entry point for the SRIO_PBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+Result 1:
+
+SRIO Device Driver ioctl entry point for the SRIO_PBIT command sets
+errno to EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x0000000E
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver ioctl entry point for the SRIO_PBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - PBIT- unit32_t - EFAULT
+*******************************************************************************
+
+Result 1:
+
+SRIO Device Driver ioctl entry point for the SRIO_PBIT command sets
+errno to EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x0000000E
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver ioctl entry point for the SRIO_PBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+Result 1:
+
+SRIO Device Driver ioctl entry point for the SRIO_PBIT command sets
+errno to EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x0000000E
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver ioctl entry point for the SRIO_PBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - PBIT - validate link
+*******************************************************************************
+
+Result 1:
+
+srio_check_link returns OK.
+
+Expected return value = 0x00000000  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+SRIO registers indicate link is valid.
+
+Expected return value = 0x00000001  Actual return value = 0x00000001
+
+       Pass __X__    Fail _____
+
+bitResult is not set.
+
+Expected return value != 0x00000004  Actual return value = 0x00000020
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - PBIT - perform dma self test
+*******************************************************************************
+
+Result 1:
+
+PBIT_LINK_DOWN_ERROR bit of bitResult is set.
+
+Expected return value = 0x00000001  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+srio_ioctl returns OK.
+
+Expected return value = 0x00000000  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - CBIT - NULL arg
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command
+sets errno to EINVAL(0x16).
+
+Expected return value = 0x00000016  Actual return value = 0x00000016
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - CBIT - access_sem_timeout_duration
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command
+sets errno to ETIMEDOUT(0x3C).
+
+Expected return value = 0x0000003C  Actual return value = 0x0000003C
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - CBIT - ETIMEDOUT
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command
+sets errno to ETIMEDOUT(0x3C).
+
+Expected return value = 0x0000003C  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command returns
+SYSERR(0xFFFFFFFF
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - CBIT - validate link
+*******************************************************************************
+
+Result 1:
+
+The flag is set to 1 indicating that the SRIO Device Driver ioctl
+entry point         for the SRIO_CBIT command verifies the SRIO link is valid
+before accessing the Habu memory.
+
+Expected return value = 0x00000001  Actual return value = 0x00000001
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command verifies the
+SRIO link         is valid before accessing the Habu memory.
+
+Expected return value = 0x00000000  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+bitResult is not set.
+
+Expected return value != 0x00000004  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - habu_fpga_read - NULL buffer
+*******************************************************************************
+
+Result 1:
+
+The habu_fpga_read sets errno to EFAULT(0xF).
+
+Expected return value = 0x0000000E  Actual return value = 0x0000000E
+
+       Pass __X__    Fail _____
+
+The habu_fpga_read returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - habu_fpga_read - execute a block read
+*******************************************************************************
+
+Result 1:
+
+The habu_fpga_read executes      a block read from the translated
+source address to the destination address.
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000001
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000002
+
+       Pass _____    Fail __X__
+
+
+Result 1:
+
+The habu_fpga_read executes      a block read from the translated
+source address to the destination address.
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000001
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000002
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000003
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000004
+
+       Pass _____    Fail __X__
+
+
+Result 1:
+
+The habu_fpga_read executes      a block read from the translated
+source address to the destination address.
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000001
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000002
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000003
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000004
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000005
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000006
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000007
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000008
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000009
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x0000000A
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x0000000B
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x0000000C
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x0000000D
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x0000000E
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x0000000F
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000010
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000011
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000012
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000013
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - habu_fpga_read - return OK
+*******************************************************************************
+
+The habu_fpga_read returns OK.
+
+Expected return value = 0x00000000  Actual return value = 0xFFFFFFFF
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - habu_fpga_write - NULL buffer
+*******************************************************************************
+
+Result 1:
+
+The habu_fpga_write sets errno to EFAULT(0xF).
+
+Expected return value = 0x0000000E  Actual return value = 0x0000000E
+
+       Pass __X__    Fail _____
+
+The habu_fpga_write returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - habu_fpga_write - execute a block write
+*******************************************************************************
+
+Result 1:
+
+The habu_fpga_write executes a block write       from the source
+address to the translated destination address.
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+
+
+Expected return value = 0x00000001  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000002  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+Result 1:
+
+The habu_fpga_write executes a block write       from the source
+address to the translated destination address.
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+
+
+Expected return value = 0x00000001  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000002  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000003  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000004  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+Result 1:
+
+The habu_fpga_write executes a block write       from the source
+address to the translated destination address.
+
+
+
+Expected return value = 0x00000000  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+
+
+Expected return value = 0x00000001  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000002  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000003  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000004  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000005  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000006  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000007  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000008  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000009  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x0000000A  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x0000000B  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x0000000C  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x0000000D  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x0000000E  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x0000000F  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000010  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000011  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000012  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Expected return value = 0x00000013  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - habu_fpga_write - return OK
+*******************************************************************************
+
+The habu_fpga_write returns OK.
+
+Expected return value = 0x00000000  Actual return value = 0xFFFFFFFF
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - DMA_REG - return DMA register address
+*******************************************************************************
+
+The DMA_REG returns the DMA SOC MR register address for the channel 0.
+
+Expected return value = 0xBF100100  Actual return value = 0xBF100100
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SR register address for the channel 0.
+
+Expected return value = 0xBF100104  Actual return value = 0xBF100104
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SATR register address for the channel 0.
+
+Expected return value = 0xBF100110  Actual return value = 0xBF100110
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SAR register address for the channel 0.
+
+Expected return value = 0xBF100114  Actual return value = 0xBF100114
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DATR register address for the channel 0.
+
+Expected return value = 0xBF100118  Actual return value = 0xBF100118
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DAR register address for the channel 0.
+
+Expected return value = 0xBF10011C  Actual return value = 0xBF10011C
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC BCR register address for the channel 0.
+
+Expected return value = 0xBF100120  Actual return value = 0xBF100120
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SSR register address for the channel 0.
+
+Expected return value = 0xBF100140  Actual return value = 0xBF100140
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DSR register address for the channel 0.
+
+Expected return value = 0xBF100144  Actual return value = 0xBF100144
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC MR register address for the channel 1.
+
+Expected return value = 0xBF100180  Actual return value = 0xBF100180
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SR register address for the channel 1.
+
+Expected return value = 0xBF100184  Actual return value = 0xBF100184
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SATR register address for the channel 1.
+
+Expected return value = 0xBF100190  Actual return value = 0xBF100190
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SAR register address for the channel 1.
+
+Expected return value = 0xBF100194  Actual return value = 0xBF100194
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DATR register address for the channel 1.
+
+Expected return value = 0xBF100198  Actual return value = 0xBF100198
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DAR register address for the channel 1.
+
+Expected return value = 0xBF10019C  Actual return value = 0xBF10019C
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC BCR register address for the channel 1.
+
+Expected return value = 0xBF1001A0  Actual return value = 0xBF1001A0
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SSR register address for the channel 1.
+
+Expected return value = 0xBF1001C0  Actual return value = 0xBF1001C0
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DSR register address for the channel 1.
+
+Expected return value = 0xBF1001C4  Actual return value = 0xBF1001C4
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC MR register address for the channel 2.
+
+Expected return value = 0xBF100200  Actual return value = 0xBF100200
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SR register address for the channel 2.
+
+Expected return value = 0xBF100204  Actual return value = 0xBF100204
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SATR register address for the channel 2.
+
+Expected return value = 0xBF100210  Actual return value = 0xBF100210
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SAR register address for the channel 2.
+
+Expected return value = 0xBF100214  Actual return value = 0xBF100214
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DATR register address for the channel 2.
+
+Expected return value = 0xBF100218  Actual return value = 0xBF100218
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DAR register address for the channel 2.
+
+Expected return value = 0xBF10021C  Actual return value = 0xBF10021C
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC BCR register address for the channel 2.
+
+Expected return value = 0xBF100220  Actual return value = 0xBF100220
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SSR register address for the channel 2.
+
+Expected return value = 0xBF100240  Actual return value = 0xBF100240
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DSR register address for the channel 2.
+
+Expected return value = 0xBF100244  Actual return value = 0xBF100244
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC MR register address for the channel 3.
+
+Expected return value = 0xBF100280  Actual return value = 0xBF100280
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SR register address for the channel 3.
+
+Expected return value = 0xBF100284  Actual return value = 0xBF100284
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SATR register address for the channel 3.
+
+Expected return value = 0xBF100290  Actual return value = 0xBF100290
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SAR register address for the channel 3.
+
+Expected return value = 0xBF100294  Actual return value = 0xBF100294
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DATR register address for the channel 3.
+
+Expected return value = 0xBF100298  Actual return value = 0xBF100298
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DAR register address for the channel 3.
+
+Expected return value = 0xBF10029C  Actual return value = 0xBF10029C
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC BCR register address for the channel 3.
+
+Expected return value = 0xBF1002A0  Actual return value = 0xBF1002A0
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SSR register address for the channel 3.
+
+Expected return value = 0xBF1002C0  Actual return value = 0xBF1002C0
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DSR register address for the channel 3.
+
+Expected return value = 0xBF1002C4  Actual return value = 0xBF1002C4
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC MR register address for the channel 4.
+
+Expected return value = 0xBF100400  Actual return value = 0xBF100400
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SR register address for the channel 4.
+
+Expected return value = 0xBF100404  Actual return value = 0xBF100404
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SATR register address for the channel 4.
+
+Expected return value = 0xBF100410  Actual return value = 0xBF100410
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SAR register address for the channel 4.
+
+Expected return value = 0xBF100414  Actual return value = 0xBF100414
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DATR register address for the channel 4.
+
+Expected return value = 0xBF100418  Actual return value = 0xBF100418
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DAR register address for the channel 4.
+
+Expected return value = 0xBF10041C  Actual return value = 0xBF10041C
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC BCR register address for the channel 4.
+
+Expected return value = 0xBF100420  Actual return value = 0xBF100420
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SSR register address for the channel 4.
+
+Expected return value = 0xBF100440  Actual return value = 0xBF100440
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DSR register address for the channel 4.
+
+Expected return value = 0xBF100444  Actual return value = 0xBF100444
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC MR register address for the channel 5.
+
+Expected return value = 0xBF100480  Actual return value = 0xBF100480
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SR register address for the channel 5.
+
+Expected return value = 0xBF100484  Actual return value = 0xBF100484
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SATR register address for the channel 5.
+
+Expected return value = 0xBF100490  Actual return value = 0xBF100490
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SAR register address for the channel 5.
+
+Expected return value = 0xBF100494  Actual return value = 0xBF100494
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DATR register address for the channel 5.
+
+Expected return value = 0xBF100498  Actual return value = 0xBF100498
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DAR register address for the channel 5.
+
+Expected return value = 0xBF10049C  Actual return value = 0xBF10049C
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC BCR register address for the channel 5.
+
+Expected return value = 0xBF1004A0  Actual return value = 0xBF1004A0
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SSR register address for the channel 5.
+
+Expected return value = 0xBF1004C0  Actual return value = 0xBF1004C0
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DSR register address for the channel 5.
+
+Expected return value = 0xBF1004C4  Actual return value = 0xBF1004C4
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC MR register address for the channel 6.
+
+Expected return value = 0xBF100500  Actual return value = 0xBF100500
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SR register address for the channel 6.
+
+Expected return value = 0xBF100504  Actual return value = 0xBF100504
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SATR register address for the channel 6.
+
+Expected return value = 0xBF100510  Actual return value = 0xBF100510
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SAR register address for the channel 6.
+
+Expected return value = 0xBF100514  Actual return value = 0xBF100514
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DATR register address for the channel 6.
+
+Expected return value = 0xBF100518  Actual return value = 0xBF100518
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DAR register address for the channel 6.
+
+Expected return value = 0xBF10051C  Actual return value = 0xBF10051C
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC BCR register address for the channel 6.
+
+Expected return value = 0xBF100520  Actual return value = 0xBF100520
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SSR register address for the channel 6.
+
+Expected return value = 0xBF100540  Actual return value = 0xBF100540
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DSR register address for the channel 6.
+
+Expected return value = 0xBF100544  Actual return value = 0xBF100544
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC MR register address for the channel 7.
+
+Expected return value = 0xBF100580  Actual return value = 0xBF100580
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SR register address for the channel 7.
+
+Expected return value = 0xBF100584  Actual return value = 0xBF100584
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SATR register address for the channel 7.
+
+Expected return value = 0xBF100590  Actual return value = 0xBF100590
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SAR register address for the channel 7.
+
+Expected return value = 0xBF100594  Actual return value = 0xBF100594
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DATR register address for the channel 7.
+
+Expected return value = 0xBF100598  Actual return value = 0xBF100598
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DAR register address for the channel 7.
+
+Expected return value = 0xBF10059C  Actual return value = 0xBF10059C
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC BCR register address for the channel 7.
+
+Expected return value = 0xBF1005A0  Actual return value = 0xBF1005A0
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC SSR register address for the channel 7.
+
+Expected return value = 0xBF1005C0  Actual return value = 0xBF1005C0
+
+       Pass __X__    Fail _____
+
+The DMA_REG returns the DMA SOC DSR register address for the channel 7.
+
+Expected return value = 0xBF1005C4  Actual return value = 0xBF1005C4
+
+       Pass __X__    Fail _____
+
+
+Running app based test
+
+*******************************************************************************
+Test Case - srio_ioctl - CBIT - wbounds - EFAULT
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command
+sets errno to EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x00000006
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command
+sets errno to EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x00000006
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command
+sets errno to EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x00000006
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command
+does not set errno to EFAULT(0xE).
+
+Expected return value != 0x0000000E  Actual return value = 0x00000006
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command does not
+return SYSERR(0xFFFFFFFF).
+
+Expected return value != 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - CBIT - unit32_t - EFAULT
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command
+sets errno to EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command
+sets errno to EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command
+does not set errno to EFAULT(0xE).
+
+Expected return value != 0x0000000E  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command does not
+return SYSERR(0xFFFFFFFF).
+
+Expected return value != 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+****************************** SUMMARY ***************************************
+TOTAL COUNT : 50
+PASS COUNT : 44
+FAIL COUNT : 6
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SRIO TEST APPLICATION COMPLETED EXECUTION OF TEST APP RELATED TEST PROCEDURE
+_____________________!!!!!!!!!!!!!!!!!!!!!!!!_________________________________
+
+*******************************************************************************
+Pass/Fail Results Summary
+
+Date:                           ________________________                        
+
+Overal Results:                 Pass _____    Fail _____                        
+
+Comments:                       ________________________________________________
+
+                                ________________________________________________
+
+                                ________________________________________________
+
+                                ________________________________________________
+
+Tested By:                      ________________________                        
+
+Signature:                      ________________________                        
+
+*******************************************************************************
+about to call for tftp transfer
+called for tftp transfer
+TFTP_Put_File returned 0
+[0x0]LynxOS-178 Version 2.2.4 (ppc)
+Copyright 1987-2017 Lynx Software Technologies Inc.
+All rights reserved.
+(This copyright supersedes all copyright statements referring
+to LynuxWorks or Lynx Real-Time Systems in individual files.)
+
+CCSW LynxOS-178 Operating System: 096-0A27-XXX
+Copyright 2013-2017 Rockwell Collins.
+All rights reserved.
+
+LynxOS-178 (ppc) created Tue Aug  1 06:38:46 CDT 2017
+cinit: VCT in use is /usr/local/etc/VCT
+Starting SRIO Testing
+Current mode is 2.
+Current Virtual Board is 0.
+Using stdout for log!
+
+*******************************************************************************
+Pass/Fail Results Summary
+
+Date:                           ________________________                        
+
+Overal Results:                 Pass _____    Fail _____                        
+
+Comments:                       ________________________________________________
+
+                                ________________________________________________
+
+                                _______________Test complete

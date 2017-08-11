@@ -1,0 +1,1085 @@
+LynxOS-178 (ppc) created Tue Aug  1 06:38:46 CDT 2017
+cinit: VCT in use is /usr/local/etc/VCT
+Starting SRIO Testing
+Current mode is 0.
+Current Virtual Board is 1.
+log file = /tmp/srio_test_app_log_mode0_VB1
+Running driver based tests
+
+*******************************************************************************
+Test Case - srio_install - successful installation
+*******************************************************************************
+
+Result 1:
+
+The  passed in parameter to sysbrk is equal to size of statics
+structure.
+
+Expected return value = 0x00000008  Actual return value = 0x00000008
+
+       Pass __X__    Fail _____
+
+The return value of sysbrk is equal to the return value of srio_install.
+
+Expected return value != 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - srio_install - clear statics structure
+*******************************************************************************
+
+Result 1:
+
+flag is set to 1.
+
+Expected return value = 0x00000001  Actual return value = 0x00000001
+
+       Pass __X__    Fail _____
+
+flag is set to the size of static structure.
+
+Expected return value = 0x00000008  Actual return value = 0x00000008
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - memory allocation failure
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+ENOMEM(0xC).
+
+Expected return value = 0x0000000C  Actual return value = 0x0000000C
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - retrieve T2080 SRIO base address
+*******************************************************************************
+
+Result 1:
+
+The flag value is set to 1 indicating that the SRIO         Device
+Driver install entry point calls vbiMemRegionFind to retrieve the T2080 SRIO    
+    base address.
+
+Expected return value = 0x00000001  Actual return value = 0x00000001
+
+       Pass __X__    Fail _____
+
+The passed in region name to vbiMemRegion function is equal to the info file
+t2080_srio_base_addr_name element.
+
+Expected return value = srio_srio
+Actual return value = srio_srio
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - fail to retrieve T2080 SRIO Base Address
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+ENODEV(0x13).
+
+Expected return value = 0x00000013  Actual return value = 0x00000013
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - retrieve DMA base address
+*******************************************************************************
+
+Result 1:
+
+The flag value is set to 1 indicating that the SRIO         Device
+Driver install entry point calls vbiMemRegionFind function         to retrieve
+the DMA base address.
+
+Expected return value = 0x00000001  Actual return value = 0x00003F52
+
+       Pass _____    Fail __X__
+
+The passed in region name to vbiMemRegion function is equal to the info file
+t2080_dma_base_addr_name element.
+
+Expected return value = fsl_dma1_dma1
+Actual return value = 
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - srio_install - fail to retrieve DMA base address
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+ENODEV(0x13).
+
+Expected return value = 0x00000013  Actual return value = 0x00000013
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - retrieve DMA transfer buffer address
+*******************************************************************************
+
+Result 1:
+
+The flag value is set to 1 indicating that the SRIO         Device
+Driver install entry point calls vbiMemRegionFind to retrieve the DMA        
+transfer buffer address.
+
+Expected return value = 0x00000001  Actual return value = 0x00001898
+
+       Pass _____    Fail __X__
+
+The passed in region name to vbiMemRegion function is equal to the info file
+t2080_dma_transfer_addr_name element.
+
+Expected return value = fsl_dma1pamu_fsl_dma1pamu
+Actual return value = 
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - srio_install - fail to retrieve DMA transfer buffer address
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+ENODEV(0x13).
+
+Expected return value = 0x00000013  Actual return value = 0x00000013
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - retrieve initialized LAW A physical base addr and
+size
+*******************************************************************************
+
+Result 1:
+
+The flag value is set to 1 indicating that the SRIO Device          
+Driver install entry point calls rciBspIoctl to retrieve the initialized LAW A  
+        physical base address and size from the LOS BSP. 
+
+Expected return value = 0x00000001  Actual return value = 0x00000E01
+
+       Pass _____    Fail __X__
+
+The passed in region name to rciBspIoctl function is equal to the info file
+habu_law_a_name element.
+
+Expected return value = srio2_habulawA
+Actual return value = 
+
+       Pass _____    Fail __X__
+
+The retrieved lower word address is equal to lower word of LAW A physical base
+address.
+
+Expected return value = 0x00000000  Actual return value = 0x00000AB3
+
+       Pass _____    Fail __X__
+
+The retrieved higher word address is equal to higher word of LAW A physical base
+address.
+
+Expected return value = 0x00000001  Actual return value = 0x00000201
+
+       Pass _____    Fail __X__
+
+The retrieved size is equal to LAW A physical base address.
+
+Expected return value = 0x08000000  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+srio_install - fail to retrieve LAW A physical base addr
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+ENODEV(0x13).
+
+Expected return value = 0x00000013  Actual return value = 0x00000013
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - size of LAW A not equal to 128MB
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x00000013
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x00000013
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x00000013
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+Result 1:
+
+The SRIO Device Driver install entry point does not set errno to
+EFAULT(0xE).
+
+Expected return value != 0x0000000E  Actual return value = 0x00000013
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point does not return SYSERR(0xFFFFFFFF).
+
+Expected return value != 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - srio_install - retrieve initialized LAW B physical base address and
+size
+*******************************************************************************
+
+Result 1:
+
+The flag value is set to 1 indicating that the SRIO         Device
+Driver install entry point calls rciBspIoctl to retrieve the initialized        
+LAW B physical base address and size from the LOS BSP. 
+
+Expected return value = 0x00000001  Actual return value = 0x000009B9
+
+       Pass _____    Fail __X__
+
+The passed in region name to rciBspIoctl function is equal to the info file
+habu_law_b_name element.
+
+Expected return value = srio2_habulawB
+Actual return value = 
+
+       Pass _____    Fail __X__
+
+The retrieved lower word address is equal to lower word of LAW B physical base
+address.
+
+Expected return value = 0x08000000  Actual return value = 0x00000E01
+
+       Pass _____    Fail __X__
+
+The retrieved higher word address is equal to higher word of LAW B physical base
+address.
+
+Expected return value = 0x00000001  Actual return value = 0x00001BB5
+
+       Pass _____    Fail __X__
+
+The retrieved size is equal to LAW B physical base address.
+
+Expected return value = 0x02000000  Actual return value = 0x00002379
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - srio_install - fail to retrieve LAW B physical base address
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+ENODEV(0x13).
+
+Expected return value = 0x00000013  Actual return value = 0x00000013
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - size of LAW B not equal to 32MB
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x00000013
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x00000013
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+Result 3:
+
+The SRIO Device Driver install entry point sets errno to
+EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x00000013
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+Result 1:
+
+The SRIO Device Driver install entry point does not set errno to
+EFAULT(0xE).
+
+Expected return value != 0x0000000E  Actual return value = 0x00000013
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point does not return SYSERR(0xFFFFFFFF).
+
+Expected return value != 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - srio_install - srio_check_link fail
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+ENOLINK(0x64).
+
+Expected return value = 0x00000064  Actual return value = 0x00000013
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - retrieve Habu LAW A base addr
+*******************************************************************************
+
+Result 1:
+
+The flag value is set to 1 indicating that the SRIO Device Driver   
+    install entry point calls vbiMemRegionFind to retrieve the virtual law A
+base address.
+
+Expected return value = 0x00000001  Actual return value = 0x00000E01
+
+       Pass _____    Fail __X__
+
+The passed in region name to vbiMemRegion function is equal to the info file
+habu_law_a_name element.
+
+Expected return value = srio2_habulawA
+Actual return value = 
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - srio_install - fail to retrieve Habu LAW A base addr
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+ENODEV(0x13).
+
+Expected return value = 0x00000013  Actual return value = 0x00000013
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - retrieve Habu LAW B base address
+*******************************************************************************
+
+The flag value is set to 1 indicating that the SRIO Device Driver install entry
+point calls vbiMemRegionFind to retrieve the virtual law B base address.
+
+Expected return value = 0x00000001  Actual return value = 0x00003A8B
+
+       Pass _____    Fail __X__
+
+The passed in region name to vbiMemRegion function is equal to the info file
+habu_law_b_name element.
+
+Expected return value = srio2_habulawB
+Actual return value = 
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - srio_install - fail to retrieve Habu LAW B base address
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+ENODEV(0x13).
+
+Expected return value = 0x00000013  Actual return value = 0x00000013
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_install - DmaSetup returns SYSERR
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver install entry point sets errno to
+ENODEV(0x13).
+
+Expected return value = 0x00000013  Actual return value = 0x00000013
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver install entry point returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - command not recognized
+*******************************************************************************
+
+Result 1:
+
+srio_ioctl returns SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+errno is set to EINVAL(0x16).
+
+Expected return value = 0x00000016  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - FIOPRIO
+*******************************************************************************
+
+Result 1:
+
+srio_ioctl returns OK.
+
+Expected return value = 0x00000000  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - FIOASYNC
+*******************************************************************************
+
+Result 1:
+
+srio_ioctl returns OK.
+
+Expected return value = 0x00000000  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - PBIT-NULL arg
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_PBIT command
+sets errno to EINVAL(0x16).
+
+Expected return value = 0x00000016  Actual return value = 0x00000016
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver ioctl entry point for the SRIO_PBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - PBIT - wbounds - EFAULT
+*******************************************************************************
+
+Result 1:
+
+SRIO Device Driver ioctl entry point for the SRIO_PBIT command sets
+errno to EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x0000003C
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver ioctl entry point for the SRIO_PBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+Result 1:
+
+SRIO Device Driver ioctl entry point for the SRIO_PBIT command sets
+errno to EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x0000003C
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver ioctl entry point for the SRIO_PBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - PBIT- unit32_t - EFAULT
+*******************************************************************************
+
+Result 1:
+
+SRIO Device Driver ioctl entry point for the SRIO_PBIT command sets
+errno to EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x0000003C
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver ioctl entry point for the SRIO_PBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+Result 1:
+
+SRIO Device Driver ioctl entry point for the SRIO_PBIT command sets
+errno to EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x0000003C
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver ioctl entry point for the SRIO_PBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - PBIT - validate link
+*******************************************************************************
+
+Result 1:
+
+srio_check_link returns OK.
+
+Expected return value = 0x00000000  Actual return value = 0xFFFFFFFF
+
+       Pass _____    Fail __X__
+
+SRIO registers indicate link is valid.
+
+Expected return value = 0x00000001  Actual return value = 0x00000001
+
+       Pass __X__    Fail _____
+
+bitResult is not set.
+
+Expected return value != 0x00000004  Actual return value = 0x00000004
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - PBIT - perform dma self test
+*******************************************************************************
+
+Result 1:
+
+PBIT_LINK_DOWN_ERROR bit of bitResult is set.
+
+Expected return value = 0x00000001  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+srio_ioctl returns OK.
+
+Expected return value = 0x00000000  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - CBIT - NULL arg
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command
+sets errno to EINVAL(0x16).
+
+Expected return value = 0x00000016  Actual return value = 0x00000016
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0xFFFFFFFF
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - CBIT - access_sem_timeout_duration
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command
+sets errno to ETIMEDOUT(0x3C).
+
+Expected return value = 0x0000003C  Actual return value = 0x0000003C
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - CBIT - ETIMEDOUT
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command
+sets errno to ETIMEDOUT(0x3C).
+
+Expected return value = 0x0000003C  Actual return value = 0x0000003C
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command returns
+SYSERR(0xFFFFFFFF
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - CBIT - validate link
+*******************************************************************************
+
+Result 1:
+
+The flag is set to 1 indicating that the SRIO Device Driver ioctl
+entry point         for the SRIO_CBIT command verifies the SRIO link is valid
+before accessing the Habu memory.
+
+Expected return value = 0x00000001  Actual return value = 0x00000001
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command verifies the
+SRIO link         is valid before accessing the Habu memory.
+
+Expected return value = 0x00000000  Actual return value = 0xFFFFFFFF
+
+       Pass _____    Fail __X__
+
+bitResult is not set.
+
+Expected return value != 0x00000004  Actual return value = 0x00000004
+
+       Pass _____    Fail __X__
+
+
+Running app based test
+
+*******************************************************************************
+Test Case - srio_ioctl - CBIT - wbounds - EFAULT
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command
+sets errno to EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x0000003C
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command
+sets errno to EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x0000003C
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command
+sets errno to EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x0000003C
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command
+does not set errno to EFAULT(0xE).
+
+Expected return value != 0x0000000E  Actual return value = 0x0000003C
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command does not
+return SYSERR(0xFFFFFFFF).
+
+Expected return value != 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+
+
+*******************************************************************************
+Test Case - srio_ioctl - CBIT - unit32_t - EFAULT
+*******************************************************************************
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command
+sets errno to EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x0000003C
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command
+sets errno to EFAULT(0xE).
+
+Expected return value = 0x0000000E  Actual return value = 0x0000003C
+
+       Pass _____    Fail __X__
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command returns
+SYSERR(0xFFFFFFFF).
+
+Expected return value = 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass _____    Fail __X__
+
+
+Result 1:
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command
+does not set errno to EFAULT(0xE).
+
+Expected return value != 0x0000000E  Actual return value = 0x0000003C
+
+       Pass __X__    Fail _____
+
+The SRIO Device Driver ioctl entry point for the SRIO_CBIT command does not
+return SYSERR(0xFFFFFFFF).
+
+Expected return value != 0xFFFFFFFF  Actual return value = 0x00000000
+
+       Pass __X__    Fail _____
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+****************************** SUMMARY ***************************************
+TOTAL COUNT : 35
+PASS COUNT : 24
+FAIL COUNT : 11
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SRIO TEST APPLICATION COMPLETED EXECUTION OF TEST APP RELATED TEST PROCEDURE
+_____________________!!!!!!!!!!!!!!!!!!!!!!!!_________________________________
+
+*******************************************************************************
+Pass/Fail Results Summary
+
+Date:                           ________________________                        
+
+Overal Results:                 Pass _____    Fail _____                        
+
+Comments:                       ________________________________________________
+
+                                ________________________________________________
+
+                                ________________________________________________
+
+                                ________________________________________________
+
+Tested By:                      ________________________                        
+
+Signature:                      ________________________                        
+
+*******************************************************************************
+about to call for tftp transfer
+called for tftp transfer
+TFTP_Put_File returned 0
+LynxOS-178 Version 2.2.4 (ppc)
+Copyright 1987-2017 Lynx Software Technologies Inc.
+All rights reserved.
+(This copyright supersedes all copyright statements referring
+to LynuxWorks or Lynx Real-Time Systems in individual files.)
+
+CCSW LynxOS-178 Operating System: 096-0A27-XXX
+Copyright 2013-2017 Rockwell Collins.
+All rights reserved.
+
+LynxOS-178 (ppc) created Tue Aug  1 06:38:46 CDT 2017
+cinit: VCT in use is /usr/local/etc/VCT
+Starting SRIO Testing
+Current mode is 2.
+Current Virtual Board is 1.
+Using stdout for log!
+
+*******************************************************************************
+Pass/Fail Results Summary
+
+Date:                           ________________________                        
+
+Overal Results:                 Pass _____    Fail _____                        
+
+Comments:                       ________________________________________________
+
+                                ________________________________________________
+
+                                _______________Test complete
