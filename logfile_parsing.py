@@ -87,25 +87,27 @@ class Result_T32_based:
         fail=0
         for line in lines:
             if line.find( "-- TEST CASE -" )!= -1:
-                #print(line)
-                line = line.replace('\r','').replace('\n','').replace('"','').replace("-- ",'')
+                print(line)
+                line = line.replace('\r','').replace('\n','').replace('"','').replace("-- ",'').replace(","," ")
                 GeneratedFile.write(str(self.total_count+1))
                 GeneratedFile.write(','+str(line))
-                if fail != 0:
-                    self.fail_count=self.fail_count+1
-                    #print("Failed")
-                    GeneratedFile.write(',Failed')
-                else:
-                    self.pass_count=self.pass_count+1
-                    #print("Passed")
-                    GeneratedFile.write(',Passed')
-
-                self.total_count=self.total_count+1
-                fail=0
-                GeneratedFile.write('\n')
             
             if line.find( "+++ TEST CASE FAILED +++" )!= -1:
                 fail=fail+1
+
+        if fail != 0:
+            self.fail_count=self.fail_count+1
+            print("Failed")
+            GeneratedFile.write(',Failed')
+            GeneratedFile.write('\n')
+            self.total_count=self.total_count+1
+        else:
+            self.pass_count=self.pass_count+1
+            print("Passed")
+            GeneratedFile.write(',Passed')
+            GeneratedFile.write('\n')
+            self.total_count=self.total_count+1
+
 
     def summery(self, GeneratedFile):
         GeneratedFile.write('\n\n,Total')
